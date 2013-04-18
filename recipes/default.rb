@@ -10,13 +10,18 @@
 include_recipe "apt"
 include_recipe "git"
 include_recipe "build-essential"
+%w{libxml2-dev libxslt-dev}.each do |p|
+  package p
+end
 
 execute "build-dep rrdtool" do
   command "apt-get build-dep rrdtool -y"
 end
 
 package "ruby1.9.3"
-gem_package "bundler"
+gem_package "bundler" do
+  gem_binary "/usr/bin/gem"
+end
 
 include_recipe "perl::default"
 cpan_module "GrowthForecast"
@@ -31,3 +36,7 @@ git "/opt/haikanko" do
   action :sync
 end
 
+execute "bundle install" do
+  command "bundle install --path vendor/bundle"
+  cwd "/opt/haikanko"
+end
