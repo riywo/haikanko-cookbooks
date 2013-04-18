@@ -1,8 +1,11 @@
-name             "haikanko-cookbooks"
-maintainer       "YOUR_NAME"
-maintainer_email "YOUR_EMAIL"
+name             "haikanko"
+maintainer       "Ryosuke IWANAGA"
+maintainer_email "riywo.jp@gmail.com"
 license          "All rights reserved"
-description      "Installs/Configures haikanko-cookbooks"
+description      "Installs/Configures haikanko"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "0.1.0"
-
+depends "perl"
+depends "rbenv"
+depends "mongodb"
+depends "postfix"

@@ -1,4 +1,4 @@
-# haikanko-cookbooks cookbook
+# haikanko cookbook
 
 # Requirements
 
